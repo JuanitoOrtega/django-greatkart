@@ -48,8 +48,8 @@ class User(AbstractBaseUser):
     verbose_name_plural = 'Usuarios'
 
   # required
-  date_joined = models.DateTimeField(auto_now_add=True)
-  last_login = models.DateTimeField(auto_now_add=True)
+  date_joined = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de registro')
+  last_login = models.DateTimeField(auto_now_add=True, verbose_name='Última sesión')
   is_admin = models.BooleanField(default=False, verbose_name='Admin')
   is_staff = models.BooleanField(default=False, verbose_name='Staff')
   is_active = models.BooleanField(default=False, verbose_name='Activo')
