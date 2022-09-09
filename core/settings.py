@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # Custom apps
     'category',
     'users',
+    'store',
 ]
 
 MIDDLEWARE = [
