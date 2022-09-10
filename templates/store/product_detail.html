@@ -96,25 +96,21 @@
             </div>
             <!-- price-wrap.// -->
 
-            <div class="form-row">
-              <div class="col-2">
-                <select class="form-control">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                </select>
+            <div class="form-row">      
+              {% if single_product.stock == 0 %}
+              <div class="col-12">
+                <div class="alert alert-danger" role="alert">
+                  <p>Producto agotado</p>
+                </div>
               </div>
-              <!-- col.// -->
-              <div class="col">
+              {% else %}
+              <div class="col-6">
                 <a href="#" class="btn btn-primary w-100">
                   Añadir al carrito <i class="fas fa-shopping-cart"></i>
                 </a>
               </div>
               <!-- col.// -->
-              <div class="col">
-                <a href="#" class="btn btn-light"> <i class="fas fa-heart"></i> </a>
-              </div>
-              <!-- col.// -->
+              {% endif %}
             </div>
             <!-- row.// -->
           </article>
