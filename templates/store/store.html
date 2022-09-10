@@ -320,8 +320,10 @@
           <div class="col-md-4">
             <figure class="card card-product-grid">
               <div class="img-wrap">
-                <span class="badge badge-danger">NEW</span>
-                <img src="{{ product.images.url }}" />
+                <span class="badge badge-danger">NUEVO</span>
+                <a href="{{ product.get_url }}">
+                  <img src="{{ product.images.url }}" />
+                </a>
                 <a class="btn-overlay" href="#"
                   ><i class="fa fa-search-plus"></i>Vista rápida</a
                 >
@@ -329,7 +331,7 @@
               <!-- img-wrap.// -->
               <figcaption class="info-wrap">
                 <div class="fix-height">
-                  <a href="#" class="title">{{ product.product_name }}</a>
+                  <a href="{{ product.get_url }}" class="title">{{ product.product_name }}</a>
                   <div class="price-wrap mt-2">
                     <span class="price">${{ product.price }}</span>
                     <del class="price-old">${{ product.old_price }}</del>
