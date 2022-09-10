@@ -7,6 +7,7 @@ class Product(models.Model):
   product_name = models.CharField(max_length=255, unique=True, verbose_name='Producto')
   slug = models.SlugField(max_length=255, unique=True, verbose_name='Slug')
   description = models.TextField(max_length=500, blank=True, verbose_name='Descripción')
+  old_price = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True, verbose_name='Precio anterior')
   price = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Precio')
   images = models.ImageField(upload_to='photos/products', verbose_name='Galería')
   stock = models.IntegerField(blank=True, null=True, verbose_name='Cantidad en mano')
