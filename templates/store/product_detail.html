@@ -105,7 +105,7 @@
               </div>
               {% else %}
               <div class="col-6">
-                <a href="#" class="btn btn-primary w-100">
+                <a href="{% url 'add_cart' single_product.id %}" class="btn btn-primary w-100">
                   Añadir al carrito <i class="fas fa-shopping-cart"></i>
                 </a>
               </div>
