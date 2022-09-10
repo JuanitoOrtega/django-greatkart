@@ -346,7 +346,11 @@
           <!-- col.// -->
           {% endfor %}
           {% else %}
-          <p>No haya productos para mostrar.</p>
+          <div class="col-md-12">
+            <div class="alert alert-info" role="alert">
+              <p>No hay productos para mostrar.</p>
+            </div>
+          </div>
           {% endif %}
         </div>
         <!-- row end.// -->
