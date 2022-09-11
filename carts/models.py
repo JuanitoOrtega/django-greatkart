@@ -24,5 +24,8 @@ class CartItem(models.Model):
     verbose_name = 'Artículo'
     verbose_name_plural = 'Artículos'
 
+  def sub_total(self):
+    return self.product.price * self.quantity
+
   def __str__(self):
     return self.product
