@@ -1,3 +1,4 @@
+from random import choices
 from django.db import models
 from category.models import Category
 from django.urls import reverse
@@ -25,3 +26,24 @@ class Product(models.Model):
 
   def __str__(self):
     return self.product_name
+
+
+variation_category_choice = (
+  ('color', 'Color'),
+  ('size', 'Talla'),
+)
+
+class Variation(models.Model):
+  product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Producto')
+  variation_category = models.CharField(max_length=100, choices=variation_category_choice, verbose_name='Tipo de variación')
+  variation_value = models.CharField(max_length=100, verbose_name='Variación')
+  is_active = models.BooleanField(default=True, verbose_name='Activo')
+  created_at = models.DateTimeField(auto_now_add=True, verbose_name='Fecha')
+  updated_at = models.DateTimeField(auto_now=True, verbose_name='Actualizado')
+
+  class Meta:
+    verbose_name = 'Variación'
+    verbose_name_plural = 'Variaciones'
+
+  def __unicode__(self):
+    return self.product
