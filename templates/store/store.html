@@ -3,7 +3,11 @@
 <!-- ========================= SECTION PAGETOP ========================= -->
 <section class="section-pagetop bg">
   <div class="container">
+    {% if 'search' in request.path %}
+    <h2 class="title-page">Resultados para: {{ keyword }}</h2>
+    {% else %}
     <h2 class="title-page">Tienda</h2>
+    {% endif %}
     <nav>
       <ol class="breadcrumb text-white">
         <li class="breadcrumb-item"><a href="{% url 'home' %}">Inicio</a></li>
@@ -26,28 +30,18 @@
         <div class="card">
           <article class="filter-group">
             <header class="card-header">
-              <a
-                href="#"
-                data-toggle="collapse"
-                data-target="#collapse_1"
-                aria-expanded="true"
-                class=""
-              >
+              <a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
                 <i class="icon-control fa fa-chevron-down"></i>
                 <h6 class="title">Tipo de producto</h6>
               </a>
             </header>
             <div class="filter-content collapse show" id="collapse_1" style="">
               <div class="card-body">
-                <form class="pb-3">
+                <form action="{% url 'search' %}" class="pb-3" method="get">
                   <div class="input-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Search"
-                    />
+                    <input type="text" class="form-control" placeholder="Buscar..." name="keyword" />
                     <div class="input-group-append">
-                      <button class="btn btn-light" type="button">
+                      <button class="btn btn-light" type="submit">
                         <i class="fa fa-search"></i>
                       </button>
                     </div>
@@ -285,7 +279,7 @@
       <main class="col-md-9">
         <header class="border-bottom mb-4 pb-3">
           <div class="form-inline">
-            <span class="mr-md-auto">{{ product_count }} productos encontrados</span>
+            <span class="mr-md-auto"><strong>{{ product_count }}</strong> productos encontrados</span>
             <select class="mr-2 form-control">
               <option>Latest items</option>
               <option>Trending</option>
@@ -358,7 +352,7 @@
         <nav class="mt-4">
           <ul class="pagination justify-content-center">
             {% if products.has_previous %}
-            <li class="page-item"><a class="page-link" href="?page={{ products.previous_page_number }}">Anterior</a></li>
+            <li class="page-item"><a class="page-link" href="?{% if keyword %}keyword={{keyword}}&{% endif %}page={{products.previous_page_number}}">Anterior</a></li>
             {% else %}
             <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
             {% endif %}
@@ -366,11 +360,11 @@
             {% if products.number == i %}
             <li class="page-item active"><a class="page-link" href="#">{{ i }}</a></li>
             {% else %}
-            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            <li class="page-item"><a class="page-link" href="?{% if keyword %}keyword={{keyword}}&{% endif %}page={{i}}">{{ i }}</a></li>
             {% endif %}
             {% endfor %}
             {% if products.has_next %}
-            <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}">Siguiente</a></li>
+            <li class="page-item"><a class="page-link" href="?{% if keyword %}keyword={{keyword}}&{% endif %}page={{products.next_page_number}}">Siguiente</a></li>
             {% else %}
             <li class="page-item disabled"><a class="page-link" href="#">Siguiente</a></li>
             {% endif %}
