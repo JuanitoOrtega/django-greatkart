@@ -13,6 +13,15 @@
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-content padding-y">
   <div class="container">
+    {% if not cart_items %}
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+          <p>Tu carrito de compras está vacío. <a href="{% url 'store' %}">Seguir comprando</a>.</p>
+        </div>
+      </div>
+    </div>
+    {% else %}
     <div class="row">
       <main class="col-md-9">
         <div class="card">
@@ -142,6 +151,7 @@
       </aside>
       <!-- col.// -->
     </div>
+    {% endif %}
   </div>
   <!-- container .//  -->
 </section>
