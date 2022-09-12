@@ -28,6 +28,13 @@ class Product(models.Model):
     return self.product_name
 
 
+class VariationManager(models.Manager):
+  def colors(self):
+    return super(VariationManager, self).filter(variation_category='color', is_active=True)
+
+  def sizes(self):
+    return super(VariationManager, self).filter(variation_category='size', is_active=True)
+
 variation_category_choice = (
   ('color', 'Color'),
   ('size', 'Talla'),
@@ -44,6 +51,8 @@ class Variation(models.Model):
   class Meta:
     verbose_name = 'Variación'
     verbose_name_plural = 'Variaciones'
+
+  objects = VariationManager()
 
   def __unicode__(self):
     return self.product
