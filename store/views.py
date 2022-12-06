@@ -4,7 +4,7 @@ from .models import Product
 from category.models import Category
 from carts.views import _cart_id
 # from django.http import HttpResponse
-from django.core.paginator import Paginator
+from django.config.paginator import Paginator
 from django.db.models import Q
 
 # Create your views here.
