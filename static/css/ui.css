@@ -685,7 +685,7 @@ dl[class=row] {
   display: flex;
 }
 .dlist-align dt {
-  width: 150px;
+  width: 110px;
   word-wrap: break-word;
   font-weight: normal;
 }
