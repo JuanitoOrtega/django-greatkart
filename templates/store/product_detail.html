@@ -3,147 +3,150 @@
 {% block content %}
 <!-- ============================ COMPONENT 2 ================================= -->
 <section class="section-content padding-y bg">
-  <div class="container">
-    <div class="card">
-      <div class="row no-gutters">
-        <aside class="col-sm-6 border-right">
-          <article class="gallery-wrap">
-            <div class="img-big-wrap">
-              <a href="#"><img src="{{ single_product.images.url }}" /></a>
-            </div>
-            <!-- img-big-wrap.// -->
-            <div class="thumbs-wrap">
-              <a href="#" class="item-thumb">
-                <img src="{% static 'images/items/1.jpg' %}"
-              /></a>
-              <a href="#" class="item-thumb">
-                <img src="{% static 'images/items/2.jpg' %}"
-              /></a>
-              <a href="#" class="item-thumb">
-                <img src="{% static 'images/items/3.jpg' %}"
-              /></a>
-              <a href="#" class="item-thumb">
-                <img src="{% static 'images/items/4.jpg' %}"
-              /></a>
-            </div>
-            <!-- thumbs-wrap.// -->
-          </article>
-          <!-- gallery-wrap .end// -->
-        </aside>
-        <main class="col-sm-6">
-          <form action="{% url 'add_cart' single_product.id %}" method="POST">
-            {% csrf_token %}
-            <article class="content-body">
-              <a href="#" class="text-primary btn-link">Clothes</a>
-              <h3 class="title">{{ single_product.product_name }}</h3>
-              <div>
-                <ul class="rating-stars">
-                  <li style="width:60%" class="stars-active">
-                    <img src="{% static 'images/icons/stars-active.svg' %}" alt="">
-                  </li>
-                  <li>
-                    <img src="{% static 'images/icons/starts-disable.svg' %}" alt="">
-                  </li>
-                </ul>
-                <span class="label-rating mr-3 text-muted">7/10</span>
-                <a href="#" class="btn-link  mr-3 text-muted"> <i class="fa fa-heart"></i> Save for later </a>
-                <a href="#" class="btn-link text-muted"> <i class="fa fa-book-open"></i> Compare </a>
-              </div>
-              <hr>
-              <p>{{ single_product.description }}</p>
-              
-              <div class="item-option-select">
-                <div class="form-group">
-                  <label for="color">
-                    <strong>Color</strong>
-                  </label>
-                  <select class="form-control" name="color" id="color" required>
-                    <option value="" disabled selected>Seleccionar color</option>
-                    {% for i in single_product.variation_set.colors %}
-                    <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}</option>
-                    {% endfor %}
-                  </select>
-                </div>
-              </div>
-              
-              <div class="item-option-select">
-                <div class="form-group">
-                  <label for="size">
-                    <strong>Talla</strong>
-                  </label>
-                  <select class="form-control" name="size" id="size" required>
-                    <option value="" disabled selected>Seleccionar talla</option>
-                    {% for i in single_product.variation_set.sizes %}
-                    <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}</option>
-                    {% endfor %}
-                  </select>
-                </div>
-              </div>
+    <div class="container">
+        <div class="card">
+            <div class="row no-gutters">
+                <aside class="col-sm-6 border-right">
+                    <article class="gallery-wrap">
+                        <div class="img-big-wrap">
+                            <a href="#"><img src="{{ single_product.images.url }}" /></a>
+                        </div>
+                        <!-- img-big-wrap.// -->
+                        <div class="thumbs-wrap">
+                            <a href="#" class="item-thumb">
+                                <img src="{% static 'images/items/1.jpg' %}">
+                            </a>
+                            <a href="#" class="item-thumb">
+                                <img src="{% static 'images/items/2.jpg' %}">
+                            </a>
+                            <a href="#" class="item-thumb">
+                                <img src="{% static 'images/items/3.jpg' %}">
+                            </a>
+                            <a href="#" class="item-thumb">
+                                <img src="{% static 'images/items/4.jpg' %}">
+                            </a>
+                        </div>
+                        <!-- thumbs-wrap.// -->
+                    </article>
+                    <!-- gallery-wrap .end// -->
+                </aside>
+                <main class="col-sm-6">
+                    <form action="{% url 'add_cart' single_product.id %}" method="POST">
+                        {% csrf_token %}
+                        <article class="content-body">
+                            <a href="#" class="text-primary btn-link">Clothes</a>
+                            <h3 class="title">{{ single_product.product_name }}</h3>
+                            <div>
+                                <ul class="rating-stars">
+                                    <li style="width: 60%" class="stars-active">
+                                        <img src="{% static 'images/icons/stars-active.svg' %}" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="{% static 'images/icons/starts-disable.svg' %}" alt="">
+                                    </li>
+                                </ul>
+                                <span class="label-rating mr-3 text-muted">7/10</span>
+                                <a href="#" class="btn-link mr-3 text-muted">
+                                    <i class="fa fa-heart"></i> Enviar a favorito
+                                </a>
+                                <a href="#" class="btn-link text-muted">
+                                    <i class="fa fa-book-open"></i> Comparar
+                                </a>
+                            </div>
+                            <hr />
+                            <p>{{ single_product.description }}</p>
 
-              <div class="h3 mb-3">
-                <var class="price h4">${{ single_product.price }}</var>
-              </div>
-              <!-- price-wrap.// -->
+                            <div class="item-option-select">
+                                <div class="form-group">
+                                    <label for="color">
+                                        <strong>Color</strong>
+                                    </label>
+                                    <select class="form-control" name="color" id="color" required>
+                                        <option value="" disabled selected>
+                                            Seleccionar color
+                                        </option>
+                                        {% for i in single_product.variation_set.colors %}
+                                        <option value="{{ i.variation_value | lower }}">
+                                            {{ i.variation_value | capfirst }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="item-option-select">
+                                <div class="form-group">
+                                    <label for="size">
+                                        <strong>Talla</strong>
+                                    </label>
+                                    <select class="form-control" name="size" id="size" required>
+                                        <option value="" disabled selected>
+                                            Seleccionar talla
+                                        </option>
+                                        {% for i in single_product.variation_set.sizes %}
+                                        <option value="{{ i.variation_value | lower }}">
+                                            {{ i.variation_value | capfirst }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
 
-              <div class="form-row">      
-                {% if single_product.stock == 0 %}
-                <div class="col-12">
-                  <div class="alert alert-danger" role="alert">
-                    <p>Producto agotado</p>
-                  </div>
-                </div>
-                {% else %}
-                {% if in_cart %}
-                <a href="#" class="btn btn-success mr-2">
-                  Añadido al carrito <i class="fas fa-check"></i>
-                </a>
-                <a href="{% url 'cart' %}" class="btn btn-outline-primary">
-                  Ver carrito <i class="fas fa-eye"></i>
-                </a>
-                <button type="submit" class="btn btn-primary">
-                  Añadir al carrito <i class="fas fa-shopping-cart"></i>
-                </button>
-                {% else %}
-                <button type="submit" class="btn btn-primary">
-                  Añadir al carrito <i class="fas fa-shopping-cart"></i>
-                </button>
-                {% endif %}
-                {% endif %}
-              </div>
-              <!-- row.// -->
-            </article>
-            <!-- product-info-aside .// -->
-          </form>
-        </main>
-        <!-- col.// -->
-      </div>
-      <!-- row.// -->
+                            <div class="h3 mb-3">
+                                <var class="price h4">${{ single_product.price }}</var>
+                            </div>
+                            <!-- price-wrap.// -->
+
+                            <div class="form-row">
+                            {% if single_product.stock <= 0 %}
+                                <div class="col-12">
+                                    <div class="alert alert-danger" role="alert">
+                                        <p>Producto agotado</p>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <button type="submit" class="btn btn-primary">
+                                    Añadir al carrito <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            {% endif %}
+                            </div>
+                            <!-- row.// -->
+                        </article>
+                        <!-- product-info-aside .// -->
+                    </form>
+                </main>
+                <!-- col.// -->
+            </div>
+            <!-- row.// -->
+        </div>
+        <!-- card.// -->
+        <br />
+        <div class="row">
+            <div class="col-md-9">
+                <header class="section-heading">
+                    <h3>Reseñas de clientes</h3>
+                </header>
+                <article class="box mb-3">
+                    <div class="icontext w-100">
+                        <img src="{% static 'images/avatars/avatar1.jpg' %}" class="img-xs icon rounded-circle">
+                        <div class="text">
+                            <span class="date text-muted float-md-right">24.04.2020 </span>
+                            <h6 class="mb-1">Mike John</h6>
+                        </div>
+                    </div>
+                    <!-- icontext.// -->
+                    <div class="mt-3">
+                        <p>
+                            Dummy comment Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip
+                        </p>
+                    </div>
+                </article>
+            </div>
+            <!-- col.// -->
+        </div>
+        <!-- row.// -->
     </div>
-    <!-- card.// -->
-    <br>
-    <div class="row">
-			<div class="col-md-9">
-        <header class="section-heading">
-          <h3>Reseñas de clientes</h3>
-        </header>
-        <article class="box mb-3">
-          <div class="icontext w-100">
-            <img src="{% static 'images/avatars/avatar1.jpg' %}" class="img-xs icon rounded-circle">
-            <div class="text">
-              <span class="date text-muted float-md-right">24.04.2020 </span>  
-              <h6 class="mb-1">Mike John </h6>
-            </div>
-          </div> <!-- icontext.// -->
-          <div class="mt-3">
-            <p>
-              Dummy comment Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip
-            </p>	
-          </div>
-        </article>
-      </div> <!-- col.// -->
-    </div> <!-- row.// -->
-  </div>
 </section>
 {% endblock content %}
