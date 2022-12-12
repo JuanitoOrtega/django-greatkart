@@ -48,12 +48,16 @@
               <span class="badge badge-pill badge-danger notify">{{ cart_count }}</span>
             </div>
             <div class="widget-header icontext">
-              <a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-user"></i></a>
+              <a href="{% if user.id is not None %}{% url 'home' %}{% else %}{% url 'login' %}{% endif %}" class="icon icon-sm rounded-circle border"><i class="fa fa-user"></i></a>
               <div class="text">
                 <span class="text-muted">Bienvenido!</span>
-                <div> 
-                  <a href="#">Iniciar sesión</a> |  
-                  <a href="#"> Registrarse</a>
+                <div>
+                  {% if user.id is not None %}
+                  <p>{{ user.first_name }} | <a href="{% url 'logout' %}">Cerrar sesión</a></p>
+                  {% else %}
+                  <a href="{% url 'login' %}">Iniciar sesión</a> |
+                  <a href="{% url 'register' %}"> Registrarse</a>
+                  {% endif %}
                 </div>
               </div>
             </div>

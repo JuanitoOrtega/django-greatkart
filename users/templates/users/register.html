@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- ========================= SECTION CONTENT ========================= -->
+    <section class="section-content padding-y" style="min-height:84vh;">
+        <!-- ============================ COMPONENT REGISTER   ================================= -->
+            <div class="card mx-auto" style="max-width:520px; margin-top:40px;">
+            <article class="card-body">
+                {% include 'includes/alerts.html' %}
+                <header class="mb-4"><h4 class="card-title">Registrarse</h4></header>
+                <form action="{% url 'register' %}" method="POST">
+                    {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col form-group">
+                                <label for="{{ form.first_name.id_for_label }}">Nombres</label>
+                                {{ form.first_name }}
+                            </div> <!-- form-group end.// -->
+                            <div class="col form-group">
+                                <label for="{{ form.last_name.id_for_label }}">Apellidos</label>
+                                {{ form.last_name }}
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row end.// -->
+                        <div class="form-row">
+                            <div class="col form-group">
+                                <label for="{{ form.phone_number.id_for_label }}">Teléfono</label>
+                                {{ form.phone_number }}
+                            </div> <!-- form-group end.// -->
+                            <div class="col form-group">
+                                <label for="{{ form.email.id_for_label }}">Correo electrónico</label>
+                                {{ form.email }}
+                                <small class="form-text text-muted">Nunca compartiremos tu correo electrónico con nadie más.</small>
+                            </div> <!-- form-group end.// -->
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="{{ form.password.id_for_label }}">Contraseña</label>
+                                {{ form.password }}
+                            </div> <!-- form-group end.// --> 
+                            <div class="form-group col-md-6">
+                                <label for="{{ form.confirm_password.id_for_label }}">Confirmar contraseña</label>
+                                {{ form.confirm_password }}
+                            </div> <!-- form-group end.// -->  
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+                        </div> <!-- form-group// -->
+                        {{ form.email.errors }}
+                        {{ form.non_field_errors }}
+                    </form>
+                </article><!-- card-body.// -->
+            </div> <!-- card .// -->
+            <p class="text-center mt-4">¿Tener una cuenta? <a href="{% url 'login' %}">Iniciar sesión</a></p>
+        <!-- ============================ COMPONENT REGISTER  END.// ================================= -->
+    </section>
+    <!-- ========================= SECTION CONTENT END// ========================= -->
+{% endblock %}

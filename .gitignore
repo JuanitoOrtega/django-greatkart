@@ -263,3 +263,6 @@ README.txt
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Custom
+HTML_template/
