@@ -1,0 +1,52 @@
+[
+{
+  "model": "category.category",
+  "pk": 1,
+  "fields": {
+    "category_name": "Ropa",
+    "slug": "ropa",
+    "description": "",
+    "image": "photos/categories/1.jpg"
+  }
+},
+{
+  "model": "category.category",
+  "pk": 2,
+  "fields": {
+    "category_name": "Accesorios",
+    "slug": "accesorios",
+    "description": "",
+    "image": "photos/categories/4.jpg"
+  }
+},
+{
+  "model": "category.category",
+  "pk": 3,
+  "fields": {
+    "category_name": "Muebles",
+    "slug": "muebles",
+    "description": "",
+    "image": "photos/categories/6.jpg"
+  }
+},
+{
+  "model": "category.category",
+  "pk": 4,
+  "fields": {
+    "category_name": "Electrónica",
+    "slug": "electronica",
+    "description": "",
+    "image": "photos/categories/7.jpg"
+  }
+},
+{
+  "model": "category.category",
+  "pk": 5,
+  "fields": {
+    "category_name": "Zapatos",
+    "slug": "zapatos",
+    "description": "",
+    "image": "photos/categories/jordan-true-flight-basketball-shoes.jpg"
+  }
+}
+]

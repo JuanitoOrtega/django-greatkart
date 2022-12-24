@@ -3,6 +3,13 @@
 {% block content %}
     <!-- ========================= SECTION CONTENT ========================= -->
     <section class="section-conten padding-y" style="min-height:84vh">
+        {% if request.GET.command %}
+        <div class="container mx-auto alert alert-info" role="alert" style="max-width: 680px; margin-top: 100px;">
+            Gracias por registrarte con nosotros. Te hemos enviado un enlace para activar tu cuenta al correo electrónico: [{{ request.GET.email }}].
+            <br><br>
+            Si ya activaste tu cuenta, por favor inicia sesión <a href="{% url 'login' %}">aquí</a>
+        </div>
+        {% else %}
         <!-- ============================ COMPONENT LOGIN   ================================= -->
         <div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
             <div class="card-body">
@@ -18,7 +25,7 @@
                     </div> <!-- form-group// -->
                     
                     <div class="form-group">
-                        <a href="#" class="float-right">¿Se te olvidó tu contraseña?</a> 
+                        <a href="{% url 'forgotPassword' %}" class="float-right">¿Se te olvidó tu contraseña?</a> 
                     
                     </div> <!-- form-group form-check .// -->
                     <div class="form-group">
@@ -29,6 +36,7 @@
         </div> <!-- card .// -->
         <p class="text-center mt-4">¿No tienes cuenta? <a href="{% url 'register' %}">Registrarse</a></p>
         <!-- ============================ COMPONENT LOGIN  END.// ================================= -->
+        {% endif %}
     </section>
     <!-- ========================= SECTION CONTENT END// ========================= -->
 {% endblock %}

@@ -1,0 +1,122 @@
+[
+{
+  "model": "store.variation",
+  "pk": 1,
+  "fields": {
+    "product": 7,
+    "variation_category": "color",
+    "variation_value": "Negro",
+    "is_active": true,
+    "created_at": "2022-12-06T11:11:22.048Z",
+    "updated_at": "2022-12-06T11:11:22.048Z"
+  }
+},
+{
+  "model": "store.variation",
+  "pk": 2,
+  "fields": {
+    "product": 7,
+    "variation_category": "color",
+    "variation_value": "Blanco",
+    "is_active": true,
+    "created_at": "2022-12-06T11:11:37.149Z",
+    "updated_at": "2022-12-06T11:11:37.149Z"
+  }
+},
+{
+  "model": "store.variation",
+  "pk": 3,
+  "fields": {
+    "product": 7,
+    "variation_category": "color",
+    "variation_value": "Plata",
+    "is_active": true,
+    "created_at": "2022-12-06T11:11:49.125Z",
+    "updated_at": "2022-12-06T11:11:49.125Z"
+  }
+},
+{
+  "model": "store.variation",
+  "pk": 4,
+  "fields": {
+    "product": 7,
+    "variation_category": "size",
+    "variation_value": "1M",
+    "is_active": true,
+    "created_at": "2022-12-06T11:12:07.298Z",
+    "updated_at": "2022-12-06T11:12:07.298Z"
+  }
+},
+{
+  "model": "store.variation",
+  "pk": 5,
+  "fields": {
+    "product": 7,
+    "variation_category": "size",
+    "variation_value": "2M",
+    "is_active": true,
+    "created_at": "2022-12-06T11:12:14.499Z",
+    "updated_at": "2022-12-06T11:12:14.499Z"
+  }
+},
+{
+  "model": "store.variation",
+  "pk": 6,
+  "fields": {
+    "product": 7,
+    "variation_category": "size",
+    "variation_value": "3M",
+    "is_active": true,
+    "created_at": "2022-12-06T11:12:20.984Z",
+    "updated_at": "2022-12-06T11:12:20.984Z"
+  }
+},
+{
+  "model": "store.variation",
+  "pk": 7,
+  "fields": {
+    "product": 1,
+    "variation_category": "color",
+    "variation_value": "Celeste",
+    "is_active": true,
+    "created_at": "2022-12-06T11:13:46.920Z",
+    "updated_at": "2022-12-06T11:13:46.920Z"
+  }
+},
+{
+  "model": "store.variation",
+  "pk": 8,
+  "fields": {
+    "product": 1,
+    "variation_category": "color",
+    "variation_value": "Azul",
+    "is_active": true,
+    "created_at": "2022-12-06T11:13:55.598Z",
+    "updated_at": "2022-12-06T11:13:55.598Z"
+  }
+},
+{
+  "model": "store.variation",
+  "pk": 9,
+  "fields": {
+    "product": 1,
+    "variation_category": "size",
+    "variation_value": "S",
+    "is_active": true,
+    "created_at": "2022-12-06T11:14:05.855Z",
+    "updated_at": "2022-12-06T11:14:05.855Z"
+  }
+},
+{
+  "model": "store.variation",
+  "pk": 10,
+  "fields": {
+    "product": 1,
+    "variation_category": "size",
+    "variation_value": "M",
+    "is_active": true,
+    "created_at": "2022-12-06T11:14:12.872Z",
+    "updated_at": "2022-12-06T11:14:12.872Z"
+  }
+}
+]
