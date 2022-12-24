@@ -1,0 +1,410 @@
+[
+    {
+        "model": "category.category",
+        "pk": 1,
+        "fields": {
+            "category_name": "Ropa",
+            "slug": "ropa",
+            "description": "",
+            "image": "photos/categories/1.jpg"
+        }
+    },
+    {
+        "model": "category.category",
+        "pk": 2,
+        "fields": {
+            "category_name": "Accesorios",
+            "slug": "accesorios",
+            "description": "",
+            "image": "photos/categories/4.jpg"
+        }
+    },
+    {
+        "model": "category.category",
+        "pk": 3,
+        "fields": {
+            "category_name": "Muebles",
+            "slug": "muebles",
+            "description": "",
+            "image": "photos/categories/6.jpg"
+        }
+    },
+    {
+        "model": "category.category",
+        "pk": 4,
+        "fields": {
+            "category_name": "Electrónica",
+            "slug": "electronica",
+            "description": "",
+            "image": "photos/categories/7.jpg"
+        }
+    },
+    {
+        "model": "category.category",
+        "pk": 5,
+        "fields": {
+            "category_name": "Zapatos",
+            "slug": "zapatos",
+            "description": "",
+            "image": "photos/categories/jordan-true-flight-basketball-shoes.jpg"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 1,
+        "fields": {
+            "product_name": "Polo de playa para hombre",
+            "slug": "polo-de-playa-para-hombre",
+            "description": "Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+            "old_price": null,
+            "price": "179.00",
+            "images": "photos/products/1.jpg",
+            "stock": 200,
+            "is_available": true,
+            "category": 1,
+            "created_at": "2022-12-06T02:24:33.603Z",
+            "updated_at": "2022-12-06T11:13:24.899Z"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 2,
+        "fields": {
+            "product_name": "Chamarra de cuero artificial",
+            "slug": "chamarra-de-cuero-artificial",
+            "description": "Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+            "old_price": null,
+            "price": "280.00",
+            "images": "photos/products/US-Polo-Assn_Jacket.jpg",
+            "stock": 89,
+            "is_available": true,
+            "category": 1,
+            "created_at": "2022-12-06T02:25:06.324Z",
+            "updated_at": "2022-12-06T13:34:09.827Z"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 3,
+        "fields": {
+            "product_name": "Short tipo vaquero para hombre",
+            "slug": "short-tipo-vaquero-para-hombre",
+            "description": "Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+            "old_price": null,
+            "price": "56.00",
+            "images": "photos/products/3.jpg",
+            "stock": 34,
+            "is_available": true,
+            "category": 1,
+            "created_at": "2022-12-06T02:25:37.009Z",
+            "updated_at": "2022-12-06T13:34:43.570Z"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 4,
+        "fields": {
+            "product_name": "Mochila de primeros auxilios",
+            "slug": "mochila-de-primeros-auxilios",
+            "description": "Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+            "old_price": null,
+            "price": "179.00",
+            "images": "photos/products/4.jpg",
+            "stock": 99,
+            "is_available": true,
+            "category": 2,
+            "created_at": "2022-12-06T02:27:10.015Z",
+            "updated_at": "2022-12-06T11:05:04.354Z"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 5,
+        "fields": {
+            "product_name": "Funda para tablet iPad 4",
+            "slug": "funda-para-tablet-ipad-4",
+            "description": "Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+            "old_price": null,
+            "price": "179.00",
+            "images": "photos/products/5.jpg",
+            "stock": 32,
+            "is_available": true,
+            "category": 2,
+            "created_at": "2022-12-06T02:27:50.500Z",
+            "updated_at": "2022-12-06T11:05:00.159Z"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 6,
+        "fields": {
+            "product_name": "Sillon de Star individual",
+            "slug": "sillon-de-star-individual",
+            "description": "Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+            "old_price": null,
+            "price": "280.00",
+            "images": "photos/products/6.jpg",
+            "stock": 77,
+            "is_available": true,
+            "category": 3,
+            "created_at": "2022-12-06T02:28:46.678Z",
+            "updated_at": "2022-12-06T11:04:55.762Z"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 7,
+        "fields": {
+            "product_name": "Reloj inteligente Apple Watch",
+            "slug": "reloj-inteligente-apple-watch",
+            "description": "Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+            "old_price": null,
+            "price": "56.00",
+            "images": "photos/products/7.jpg",
+            "stock": 22,
+            "is_available": true,
+            "category": 4,
+            "created_at": "2022-12-06T02:29:21.219Z",
+            "updated_at": "2022-12-06T11:04:51.888Z"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 8,
+        "fields": {
+            "product_name": "Audífonos AUTOBOX 3",
+            "slug": "audifonos-autobox-3",
+            "description": "Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+            "old_price": null,
+            "price": "179.00",
+            "images": "photos/products/9.jpg",
+            "stock": 76,
+            "is_available": true,
+            "category": 4,
+            "created_at": "2022-12-06T02:29:47.827Z",
+            "updated_at": "2022-12-06T11:04:47.791Z"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 9,
+        "fields": {
+            "product_name": "Pantalón Jeans para hombre",
+            "slug": "pantalon-jeans-para-hombre",
+            "description": "Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+            "old_price": null,
+            "price": "199.00",
+            "images": "photos/products/ATX-Jeans.jpg",
+            "stock": 45,
+            "is_available": true,
+            "category": 1,
+            "created_at": "2022-12-06T13:36:14.012Z",
+            "updated_at": "2022-12-06T13:36:24.042Z"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 10,
+        "fields": {
+            "product_name": "Zapato deportivo RUNNER",
+            "slug": "zapato-deportivo-runner",
+            "description": "Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+            "old_price": null,
+            "price": "89.00",
+            "images": "photos/products/jordan-true-flight-basketball-shoes.jpg",
+            "stock": 65,
+            "is_available": true,
+            "category": 5,
+            "created_at": "2022-12-06T13:38:03.909Z",
+            "updated_at": "2022-12-06T13:38:03.909Z"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 11,
+        "fields": {
+            "product_name": "Camiza playera Hawai",
+            "slug": "camiza-playera-hawai",
+            "description": "Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+            "old_price": null,
+            "price": "122.00",
+            "images": "photos/products/Wrangler-Shirt.jpg",
+            "stock": 64,
+            "is_available": true,
+            "category": 1,
+            "created_at": "2022-12-06T13:38:52.977Z",
+            "updated_at": "2022-12-06T13:38:52.977Z"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 12,
+        "fields": {
+            "product_name": "Camisa ejecutiva para hombre",
+            "slug": "camisa-ejecutiva-para-hombre",
+            "description": "Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+            "old_price": null,
+            "price": "139.00",
+            "images": "photos/products/Blue-Shirt.jpg",
+            "stock": 88,
+            "is_available": true,
+            "category": 1,
+            "created_at": "2022-12-06T13:39:24.176Z",
+            "updated_at": "2022-12-06T13:39:24.176Z"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 13,
+        "fields": {
+            "product_name": "Cámara Canon ULTRA LEX",
+            "slug": "camara-canon-ultra-lex",
+            "description": "Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+            "old_price": null,
+            "price": "99.00",
+            "images": "photos/products/2.png",
+            "stock": 55,
+            "is_available": true,
+            "category": 4,
+            "created_at": "2022-12-06T18:18:14.714Z",
+            "updated_at": "2022-12-06T18:18:14.714Z"
+        }
+    },
+    {
+        "model": "store.product",
+        "pk": 14,
+        "fields": {
+            "product_name": "Polo Azul para Hombre",
+            "slug": "polo-azul-para-hombre",
+            "description": "Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.",
+            "old_price": null,
+            "price": "29.00",
+            "images": "photos/products/12.png",
+            "stock": 44,
+            "is_available": true,
+            "category": 1,
+            "created_at": "2022-12-06T18:20:57.353Z",
+            "updated_at": "2022-12-06T18:20:57.353Z"
+        }
+    },
+    {
+        "model": "store.variation",
+        "pk": 1,
+        "fields": {
+            "product": 7,
+            "variation_category": "color",
+            "variation_value": "Negro",
+            "is_active": true,
+            "created_at": "2022-12-06T11:11:22.048Z",
+            "updated_at": "2022-12-06T11:11:22.048Z"
+        }
+    },
+    {
+        "model": "store.variation",
+        "pk": 2,
+        "fields": {
+            "product": 7,
+            "variation_category": "color",
+            "variation_value": "Blanco",
+            "is_active": true,
+            "created_at": "2022-12-06T11:11:37.149Z",
+            "updated_at": "2022-12-06T11:11:37.149Z"
+        }
+    },
+    {
+        "model": "store.variation",
+        "pk": 3,
+        "fields": {
+            "product": 7,
+            "variation_category": "color",
+            "variation_value": "Plata",
+            "is_active": true,
+            "created_at": "2022-12-06T11:11:49.125Z",
+            "updated_at": "2022-12-06T11:11:49.125Z"
+        }
+    },
+    {
+        "model": "store.variation",
+        "pk": 4,
+        "fields": {
+            "product": 7,
+            "variation_category": "size",
+            "variation_value": "1M",
+            "is_active": true,
+            "created_at": "2022-12-06T11:12:07.298Z",
+            "updated_at": "2022-12-06T11:12:07.298Z"
+        }
+    },
+    {
+        "model": "store.variation",
+        "pk": 5,
+        "fields": {
+            "product": 7,
+            "variation_category": "size",
+            "variation_value": "2M",
+            "is_active": true,
+            "created_at": "2022-12-06T11:12:14.499Z",
+            "updated_at": "2022-12-06T11:12:14.499Z"
+        }
+    },
+    {
+        "model": "store.variation",
+        "pk": 6,
+        "fields": {
+            "product": 7,
+            "variation_category": "size",
+            "variation_value": "3M",
+            "is_active": true,
+            "created_at": "2022-12-06T11:12:20.984Z",
+            "updated_at": "2022-12-06T11:12:20.984Z"
+        }
+    },
+    {
+        "model": "store.variation",
+        "pk": 7,
+        "fields": {
+            "product": 1,
+            "variation_category": "color",
+            "variation_value": "Celeste",
+            "is_active": true,
+            "created_at": "2022-12-06T11:13:46.920Z",
+            "updated_at": "2022-12-06T11:13:46.920Z"
+        }
+    },
+    {
+        "model": "store.variation",
+        "pk": 8,
+        "fields": {
+            "product": 1,
+            "variation_category": "color",
+            "variation_value": "Azul",
+            "is_active": true,
+            "created_at": "2022-12-06T11:13:55.598Z",
+            "updated_at": "2022-12-06T11:13:55.598Z"
+        }
+    },
+    {
+        "model": "store.variation",
+        "pk": 9,
+        "fields": {
+            "product": 1,
+            "variation_category": "size",
+            "variation_value": "S",
+            "is_active": true,
+            "created_at": "2022-12-06T11:14:05.855Z",
+            "updated_at": "2022-12-06T11:14:05.855Z"
+        }
+    },
+    {
+        "model": "store.variation",
+        "pk": 10,
+        "fields": {
+            "product": 1,
+            "variation_category": "size",
+            "variation_value": "M",
+            "is_active": true,
+            "created_at": "2022-12-06T11:14:12.872Z",
+            "updated_at": "2022-12-06T11:14:12.872Z"
+        }
+    }
+]
