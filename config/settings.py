@@ -26,12 +26,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Package
+    'django_countries',
     # Custom apps
     'category',
     'accounts',
     'store',
     'carts',
+    'orders',
 ]
+
+COUNTRIES_ONLY = ['AR', 'BO', 'BR', 'CL', 'CO', 'EC', 'PE', 'PY', 'UY', 'VE']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

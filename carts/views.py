@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from orders.forms import OrderForm
 from store.models import Product, Variation
 from carts.models import Cart, CartItem
 from django.contrib.auth.decorators import login_required
@@ -178,6 +179,7 @@ def cart(request, total=0, quantity=0, cart_items=None):
 
 @login_required(login_url = 'login')
 def checkout(request, total=0, quantity=0, cart_items=None):
+    form = OrderForm()
     try:
         tax = 0
         grand_total = 0
@@ -200,6 +202,7 @@ def checkout(request, total=0, quantity=0, cart_items=None):
         'cart_items': cart_items,
         'tax'       : tax,
         'grand_total': grand_total,
+        'form': form,
     }
 
     return render(request, 'cart/checkout.html', context)
