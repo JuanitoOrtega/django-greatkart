@@ -48,7 +48,9 @@
                                 <span class="badge badge-pill badge-danger notify">{{ cart_count }}</span>
                             </div>
                             <div class="widget-header icontext">
-                                <a href="{% if user.id is not None %}{% url 'dashboard' %}{% else %}{% url 'login' %}{% endif %}" class="icon icon-sm rounded-circle border"><i class="fa fa-user"></i></a>
+                                {% if user.id is not None %}
+                                <a href="{% url 'dashboard' %}" class="icon icon-sm rounded-circle border"><i class="fa fa-user"></i></a>
+                                {% endif %}
                                 <div class="text">
                                     <span class="text-muted">Bienvenido!</span>
                                     <div>
