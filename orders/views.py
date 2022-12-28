@@ -11,23 +11,23 @@ import json
 
 
 def payments(request):
+    body = json.loads(request.body)
+    order = Order.objects.get(user=request.user, is_ordered=False, order_number=body['orderID'])
+
+    # Store transaction details inside Payment model
+    payment = Payment(
+        user = request.user,
+        payment_id = body['transID'],
+        payment_method = body['payment_method'],
+        amount_paid = order.order_total,
+        status = body['status'],
+    )
+    payment.save()
+
+    order.payment = payment
+    order.is_ordered = True
+    order.save()
     return render(request, 'orders/payments.html')
-    # body = json.loads(request.body)
-    # order = Order.objects.get(user=request.user, is_ordered=False, order_number=body['orderID'])
-
-    # # Store transaction details inside Payment model
-    # payment = Payment(
-    #     user = request.user,
-    #     payment_id = body['transID'],
-    #     payment_method = body['payment_method'],
-    #     amount_paid = order.order_total,
-    #     status = body['status'],
-    # )
-    # payment.save()
-
-    # order.payment = payment
-    # order.is_ordered = True
-    # order.save()
 
     # # Move the cart items to Order Product table
     # cart_items = CartItem.objects.filter(user=request.user)
