@@ -60,7 +60,7 @@ class Order(models.Model):
         return f'{self.address_line_1} {self.address_line_2}'
 
     def __str__(self):
-        return self.first_name
+        return self.order_number
 
 
 class OrderProduct(models.Model):
