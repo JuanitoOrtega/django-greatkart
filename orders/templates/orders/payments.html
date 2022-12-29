@@ -197,18 +197,19 @@
         let amount = pre_amount.replace(/,/g, '.');
         
         // Payment detail
-        let url = '{% url 'payments' %}';
+        let url = '{% url "payments" %}';
         // console.log(url);
         const orderID = '{{ order.order_number }}';
         const payment_method = 'PayPal';
+        const redirect_url = '{% url "order_complete" %}';
 
         // Render the PayPal button into #paypal-button-container
         paypal.Buttons({
             // Style button
             style: {
-                color:  'blue',
-                shape:  'rect', // pill
-                label:  'pay',
+                color: 'blue',
+                shape: 'rect', // pill
+                label: 'pay',
                 height: 40
             },
 
@@ -227,7 +228,7 @@
             onApprove: function(data, actions) {
                 return actions.order.capture().then(function(orderData) {
                     // Successful capture! For demo purposes:
-                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                    console.log('Captura de resultados', orderData, JSON.stringify(orderData, null, 2));
                     // let transaction = orderData.purchase_units[0].payments.captures[0];
                     // alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
                     sendData();
@@ -244,9 +245,11 @@
                                 payment_method: payment_method,
                                 status: orderData.status
                             }),
-                        })
-                            // .then(response => response.json())
-                            // .then(data => console.log(data));
+                        }).then(response => response.json()).then(data => {
+                            // console.log('Éxito: ', data);
+                            // console.log('Transacción completa');
+                            window.location.href = redirect_url+'?order_number='+data.order_number+'&payment_id='+data.transID;
+                        });
                     }
                 });
             }
