@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from config import settings
 
 
 class MyUserManager(BaseUserManager):
@@ -42,7 +43,8 @@ class User(AbstractBaseUser):
     last_name = models.CharField(max_length=50, verbose_name='Apellidos')
     username = models.CharField(max_length=50, unique=True, verbose_name='Usuario')
     email = models.EmailField(max_length=100, unique=True, verbose_name='Correo electrónico')
-    phone_number = models.CharField(max_length=50, verbose_name='Teléfono')
+    phone_number = models.CharField(max_length=50, null=True, blank=True, verbose_name='Teléfono')
+    picture = models.ImageField(upload_to='photos/users', null=True, blank=True, verbose_name='Foto de perfil')
 
     class Meta:
         verbose_name = 'Usuario'
@@ -64,11 +66,16 @@ class User(AbstractBaseUser):
     def full_name(self):
         return f'{self.first_name} {self.last_name}'
 
-    def __str__(self):
-        return self.email
+    def get_picture(self):
+        if self.picture:
+            return f'{settings.MEDIA_URL}{self.picture}'
+        return f'{settings.STATIC_URL}images/avatars/avatar.jpg'
 
     def has_perm(self, perm, obj=None):
         return self.is_admin
 
     def has_module_perms(self, add_label):
         return True
+
+    def __str__(self):
+        return self.email
