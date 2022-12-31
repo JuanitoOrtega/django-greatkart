@@ -44,7 +44,6 @@ class User(AbstractBaseUser):
     username = models.CharField(max_length=50, unique=True, verbose_name='Usuario')
     email = models.EmailField(max_length=100, unique=True, verbose_name='Correo electrónico')
     phone_number = models.CharField(max_length=50, null=True, blank=True, verbose_name='Teléfono')
-    picture = models.ImageField(upload_to='photos/users', null=True, blank=True, verbose_name='Foto de perfil')
 
     class Meta:
         verbose_name = 'Usuario'
@@ -66,11 +65,6 @@ class User(AbstractBaseUser):
     def full_name(self):
         return f'{self.first_name} {self.last_name}'
 
-    def get_picture(self):
-        if self.picture:
-            return f'{settings.MEDIA_URL}{self.picture}'
-        return f'{settings.STATIC_URL}images/avatars/avatar.jpg'
-
     def has_perm(self, perm, obj=None):
         return self.is_admin
 
@@ -79,3 +73,23 @@ class User(AbstractBaseUser):
 
     def __str__(self):
         return self.email
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='Usuario')
+    address_line_1 = models.CharField(max_length=100, blank=True, verbose_name='Direccion línea 1')
+    address_line_2 = models.CharField(max_length=100, blank=True, verbose_name='Direccion línea 2')
+    profile_picture = models.ImageField(upload_to='userprofile', verbose_name='Imágen de perfil')
+    city = models.CharField(max_length=50, blank=True, verbose_name='Ciudad')
+    state = models.CharField(max_length=50, blank=True, verbose_name='Estado/Región')
+    country = models.CharField(max_length=50, blank=True, verbose_name='País')
+
+    class Meta:
+        verbose_name = 'Perfil de usuario'
+        verbose_name_plural = 'Perfil de usuarios'
+
+    def full_address(self):
+        return f'{self.address_line_1} {self.address_line_2}'
+
+    def __str__(self):
+        return self.user.first_name + ' ' + self.user.last_name

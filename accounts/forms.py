@@ -1,16 +1,16 @@
 from django.forms import *
-from .models import User
+from .models import User, UserProfile
 
 
 class RegistrationForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
-        for field in self.fields:
-            self.fields[field].widget.attrs['class'] = 'form-control'
         self.fields['first_name'].widget.attrs['placeholder'] = 'Tus nombres'
         self.fields['last_name'].widget.attrs['placeholder'] = 'Tus apellidos'
         self.fields['phone_number'].widget.attrs['placeholder'] = 'Tu número de teléfono'
         self.fields['email'].widget.attrs['placeholder'] = 'Tu correo electrónico'
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'form-control'
 
     def clean(self):
         cleaned_data = super(RegistrationForm, self).clean()
@@ -47,3 +47,62 @@ class RegistrationForm(ModelForm):
             }
         )
     )
+
+
+class UserForm(ModelForm):
+    
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'phone_number']
+        widgets = {
+            'first_name': TextInput(
+                attrs={
+                    'class': 'form-control',
+                }
+            ),
+            'last_name': TextInput(
+                attrs={
+                    'class': 'form-control',
+                }
+            ),
+            'phone_number': TextInput(
+                attrs={
+                    'type': 'tel',
+                    'class': 'form-control',
+                }
+            )
+        }
+
+
+class UserProfileForm(ModelForm):
+    
+    class Meta:
+        model = UserProfile
+        fields = ['address_line_1', 'address_line_2', 'city', 'state', 'country', 'profile_picture']
+        widgets = {
+            'address_line_1': TextInput(
+                attrs={
+                    'class': 'form-control',
+                }
+            ),
+            'address_line_2': TextInput(
+                attrs={
+                    'class': 'form-control',
+                }
+            ),
+            'city': TextInput(
+                attrs={
+                    'class': 'form-control',
+                }
+            ),
+            'state': TextInput(
+                attrs={
+                    'class': 'form-control',
+                }
+            ),
+            'country': TextInput(
+                attrs={
+                    'class': 'form-control',
+                }
+            )
+        }
