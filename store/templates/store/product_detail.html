@@ -8,23 +8,15 @@
             <div class="row no-gutters">
                 <aside class="col-sm-6 border-right">
                     <article class="gallery-wrap">
-                        <div class="img-big-wrap">
-                            <a href="#"><img src="{{ single_product.images.url }}" /></a>
+                        <div class="img-big-wrap mainImagen text-center">
+                            <img src="{{ single_product.images.url }}">
                         </div>
                         <!-- img-big-wrap.// -->
                         <div class="thumbs-wrap">
-                            <a href="#" class="item-thumb">
-                                <img src="{% static 'images/items/1.jpg' %}">
-                            </a>
-                            <a href="#" class="item-thumb">
-                                <img src="{% static 'images/items/2.jpg' %}">
-                            </a>
-                            <a href="#" class="item-thumb">
-                                <img src="{% static 'images/items/3.jpg' %}">
-                            </a>
-                            <a href="#" class="item-thumb">
-                                <img src="{% static 'images/items/4.jpg' %}">
-                            </a>
+                            <a href="{{ single_product.images.url }}" class="item-thumb featureImagen"><img src="{{ single_product.images.url }}"></a>
+                            {% for i in product_gallery %}
+                            <a href="{{ i.image.url }}" class="item-thumb featureImagen"><img src="{{ i.image.url }}"></a>
+                            {% endfor %}
                         </div>
                         <!-- thumbs-wrap.// -->
                     </article>
@@ -43,7 +35,7 @@
                                     <i class="fa fa-star{% if single_product.averageReview < 2.5 %}-o{% elif single_product.averageReview >= 2.5 and single_product.averageReview < 3 %}-half-o {% endif %}" aria-hidden="true"></i>
                                     <i class="fa fa-star{% if single_product.averageReview < 3.5 %}-o{% elif single_product.averageReview >= 3.5 and single_product.averageReview < 4 %}-half-o {% endif %}" aria-hidden="true"></i>
                                     <i class="fa fa-star{% if single_product.averageReview < 4.5 %}-o{% elif single_product.averageReview >= 4.5 and single_product.averageReview < 5 %}-half-o {% endif %}" aria-hidden="true"></i>
-                                    <span class="mr-3">{{single_product.countReview}} reseñas</span>
+                                    <span class="mr-3">{{ single_product.countReview }} reseñas</span>
                                     <a href="#" class="btn-link mr-3 text-muted">
                                         <i class="fa fa-heart" aria-hidden="true"></i> Enviar a favorito
                                     </a>
@@ -204,3 +196,14 @@
     </div>
 </section>
 {% endblock content %}
+
+{% block javascript %}
+    <script>
+        $(document).ready(function () {
+            $('.thumbs-wrap a').click(function (e) {
+                e.preventDefault();
+                $('.mainImagen img').attr('src', $(this).attr('href'));
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,10 +1,19 @@
 from django.contrib import admin
-from .models import Product, Variation, ReviewRating
+from django.db import models
+from .models import Product, Variation, ReviewRating, ProductGallery
+import admin_thumbnails
+
+
+@admin_thumbnails.thumbnail('image')
+class ProductGalleryInline(admin.TabularInline):
+    model = ProductGallery
+    extra = 1
 
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('product_name', 'price', 'stock', 'category', 'updated_at', 'is_available')
     prepopulated_fields = {'slug': ('product_name',)}
+    inlines = [ProductGalleryInline]
 
 
 class VariationAdmin(admin.ModelAdmin):
@@ -19,6 +28,13 @@ class ReviewRatingAdmin(admin.ModelAdmin):
     list_filter = ('product', 'user', 'rating', 'ip', 'created_at')
 
 
+class ProductGalleryAdmin(admin.ModelAdmin):
+    list_display = ['product']
+    list_display_links = ['product']
+    list_filter = ['product']
+
+
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Variation, VariationAdmin)
 admin.site.register(ReviewRating, ReviewRatingAdmin)
+admin.site.register(ProductGallery, ProductGalleryAdmin)
