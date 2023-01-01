@@ -3,8 +3,10 @@ autopep8==2.0.0
 certifi==2022.12.7
 charset-normalizer==2.1.1
 Django==3.1
+django-admin-honeypot==1.1.0
 django-admin-thumbnails==0.2.6
 django-countries==7.5
+django-session-timeout==0.1.0
 idna==3.4
 Pillow==9.2.0
 psycopg2-binary==2.9.3
